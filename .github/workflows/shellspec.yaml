@@ -12,6 +12,6 @@ jobs:
       - name: Setup Shellspec
         run: |
           echo "${HOME}/.local/bin" >> "${GITHUB_PATH}"
-          curl -fsSL https://git.io/shellspec | sh -s -- -yes
+          curl -fsSL https://git.io/shellspec | sh -s -- --yes
       - name: Run ShellSpec
         run: shellspec
