@@ -14,7 +14,7 @@ find_duplicate_files() {
     temp_file=$(mktemp)
     find "${dir}" -type f -exec md5 -r {} + > "${temp_file}"
     sort "${temp_file}" | cut -f1 -d " " | uniq -d | while read -r hash; do
-      grep "${hash}" "${temp_file}"
+      grep "${hash}" "${temp_file}" | sed 's/ /  /'
     done
     rm "${temp_file}"
   else
